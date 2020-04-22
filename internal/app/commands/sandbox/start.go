@@ -62,8 +62,8 @@ func StartSandbox(sandbox *Sandbox, detach, devMode bool) {
 	EnsureDistroExists(sandbox.Distro)
 
 	cmd := startDistro(sandbox.Distro, sandbox.Name, detach, devMode)
+        pid := cmd.Process.Pid
 
-	pid := os.Getpid()
 	writeRunningSandbox(sandbox.Name, pid)
 
 	if !detach {

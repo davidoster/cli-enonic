@@ -104,7 +104,7 @@ func VerifyRuntimeData(rData *RuntimeData) bool {
 	} else {
 		// make sure that process is still alive and has the same name
 		proc, _ := ps.FindProcess(rData.PID)
-		if proc != nil && strings.Index(proc.Executable(), "enonic") == 0 {
+		if proc != nil && strings.Index(proc.Executable(), "java") == 0 {
 			return true
 		} else {
 			rData.PID = 0
